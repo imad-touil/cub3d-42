@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "./libft/libft.h"
 
 int	main(void)
 {
-	printf("Hello My Nigga\n");
+	ft_putstr_fd("Hello Funny World\n", 2);
 }
