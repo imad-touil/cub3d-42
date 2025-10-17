@@ -1,15 +1,27 @@
+NAME = cub3d
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LFLAGS = -lmlx -framework OpenGL -framework AppKit
-NAME = cub3d
 
-all:
+SRC = main.c
+OBJ = $(SRC:.c=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJ) ./includes/cub3d.h
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LFLAGS)
 	@make -C libft
-	@mv libft/libft.a .
-	@$(CC) $(CFLAGS) main.c libft.a -o $(NAME)
+
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@make fclean -C libft
-	@rm -rf libft.a $(NAME)
+	@rm -f $(OBJ)
+	@make clean -C libft
 
-re: clean all
+fclean: clean
+	@rm -f $(NAME)
+	@make fclean -C libft
+
+re: fclean all
+

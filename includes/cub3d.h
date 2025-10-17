@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 17:54:12 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/17 12:06:39 by imatouil         ###   ########.fr       */
+/*   Created: 2025/10/17 10:53:35 by imatouil          #+#    #+#             */
+/*   Updated: 2025/10/17 12:24:43 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/cub3d.h"
+#include "../libft/libft.h"
+#include "mlx.h"
+#include <stdio.h>
 
-int	handel_key(int key_code, void *param)
-{
-	param = (char *)param;
-	if (key_code == 53)
-	{
-		printf("thala!\n");
-		exit(0);
-	}
-	return (0);
-}
-
-int	main(void)
-{
-	void	*mlx;
-	void	*win;
-
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, WIN_W, WIN_H, "Cub3D");
-	mlx_key_hook(win, handel_key, NULL);
-	mlx_loop(mlx);
-}
+#define WIN_W 1920
+#define WIN_H 1080
