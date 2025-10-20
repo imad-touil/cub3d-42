@@ -5,7 +5,8 @@ LFLAGS = -lmlx -framework OpenGL -framework AppKit
 
 SRC = ./sources/main.c\
       ./get_next_line/get_next_line.c\
-      ./get_next_line/get_next_line_utils.c
+      ./get_next_line/get_next_line_utils.c\
+	  ./parsing/parser.c\
 
 OBJ = $(SRC:.c=.o)
 LIBFT = ./libft/libft.a
