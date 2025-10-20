@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 17:54:12 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/17 12:06:39 by imatouil         ###   ########.fr       */
+/*   Created: 2024/11/26 21:52:43 by imatouil          #+#    #+#             */
+/*   Updated: 2025/10/20 11:51:00 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/cub3d.h"
+#include "get_next_line.h"
 
-int	handel_key(int key_code, void *param)
+char	*ft_strjoin2(char *s1, char *s2)
 {
-	param = (char *)param;
-	if (key_code == 53)
+	size_t	len;
+	size_t	j;
+	size_t	i;
+	char	*ptr;
+
+	if (!s1)
+		s1 = ft_strdup("");
+	len = ft_strlen(s1) + ft_strlen(s2);
+	ptr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	while (s1[i])
 	{
-		printf("thala!\n");
-		exit(0);
+		ptr[i] = s1[i];
+		i++;
 	}
-	return (0);
-}
-
-int	main(void)
-{
-	void	*mlx;
-	void	*win;
-
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, WIN_W, WIN_H, "Cub3D");
-	mlx_key_hook(win, handel_key, NULL);
-	mlx_loop(mlx);
+	j = 0;
+	while (s2[j])
+		ptr[i++] = s2[j++];
+	ptr[i] = '\0';
+	return (ptr);
 }

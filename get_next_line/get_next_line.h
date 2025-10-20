@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 10:53:35 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/20 11:52:16 by imatouil         ###   ########.fr       */
+/*   Created: 2024/11/20 19:50:34 by imatouil          #+#    #+#             */
+/*   Updated: 2025/10/20 11:46:24 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-#ifndef CUB3D_H
-# define CUB3D_H
+# include <unistd.h>
+# include <stdlib.h>
+# include "../includes/cub3d.h"
 
-#include "../libft/libft.h"
-#include "../get_next_line/get_next_line.h"
-#include "mlx.h"
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
 
-#include <stdio.h>
-#include <fcntl.h>
-#include <stdlib.h>
-
-#define WIN_W 1920
-#define WIN_H 1080
-
+char	*get_next_line(int fd);
+char	*ft_strjoin2(char *s1, char *s2);
 
 #endif
