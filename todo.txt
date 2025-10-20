@@ -1,1 +1,32 @@
 handel key as switch\
+--------------------------
+Step 4: Parse the header
+--------------------------
+
+Go line by line.
+
+Detect resolution (R), textures (NO, SO, WE, EA), and colors (F, C).
+
+Store values in your t_cub struct.
+
+Skip empty lines.
+
+--------------------------
+Step 5: Parse the map
+--------------------------
+
+Once you reach the first line that looks like a map (1s and 0s), start storing it.
+
+Use a dynamic array or linked list first, then convert to a 2D char ** array.
+
+Detect player start position (N/S/E/W) and store it in t_player.
+
+--------------------------
+Step 6: Validate the map
+--------------------------
+
+Make sure the map is surrounded by walls.
+
+Make sure there’s exactly one player start.
+
+Check for invalid characters.
