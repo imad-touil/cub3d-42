@@ -31,3 +31,5 @@ fclean: clean
 	@make fclean -C libft
 
 re: fclean all
+
+.PHONY: all clean fclean
