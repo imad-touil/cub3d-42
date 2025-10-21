@@ -7,6 +7,7 @@ SRC = ./sources/main.c\
       ./get_next_line/get_next_line.c\
       ./get_next_line/get_next_line_utils.c\
 	  ./parsing/parser.c\
+	  ./parsing/utils.c\
 
 OBJ = $(SRC:.c=.o)
 LIBFT = ./libft/libft.a
