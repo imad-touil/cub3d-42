@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 14:55:31 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/21 18:38:43 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/21 20:45:24 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	parse_map(t_cub *cub, char *file_name)
 		return (perror("Error opening file"), 1);
 	line = get_next_line(fd);
 	if (!line)
-		return (printf("You Entered an empty file\n"), 0);
+		error(cub, "You Entered an empty file");
 	while (line)
 	{
 		line = skip_white_space(line);

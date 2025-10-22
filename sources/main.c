@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 17:54:12 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/21 16:45:15 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/21 20:40:32 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ int	main(int ac, char **av)
 	t_cub	*cub;
 
 	if (ac != 2)
-		return (printf("Enter One Arg!\n"), 1);
+		return (printf("%sEnter One Arg!\n", RED), 1);
 	else if ((ft_strlen(av[1]) <= 4)
 		|| (ft_strncmp(".cub", av[1] + ft_strlen(av[1]) - 4, 4)))
-		return (printf("Enter .cub file extension\n"), 1);
+		return (printf("%sEnter .cub file extension\n", RED), 1);
 	cub = malloc(sizeof(cub));
 	if (!cub)
 		return (perror("Cub3D"), 1);

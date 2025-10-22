@@ -1,4 +1,14 @@
-handel key as switch\
+
+
+==>>  handel key as switch\  <<==
+==>>  Make sure about .cub\  <<==
+==>>  Fix leaks Fix leaks \  <<==
+
+
+
+
+
+
 --------------------------
 Step 4: Parse the header
 --------------------------
@@ -12,7 +22,7 @@ Store values in your t_cub struct.
 Skip empty lines.
 
 --------------------------
-Step 5: Parse the map
+Step 5: Parse the mapw
 --------------------------
 
 Once you reach the first line that looks like a map (1s and 0s), start storing it.
