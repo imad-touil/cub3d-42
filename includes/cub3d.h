@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:53:35 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/21 19:46:10 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/22 12:50:48 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ typedef struct s_cub
 	char			*texture_so;
 	char			*texture_we;
 	char			*texture_ea;
+	int				has_no;
+	int				has_so;
+	int				has_we;
+	int				has_ea;
 	struct s_player	*player;
 	struct s_color	*floor;
 	struct s_color	*ceiling;
@@ -66,5 +70,6 @@ typedef struct s_map
 int		parse_map(t_cub *cub, char *file_name);
 char	*skip_white_space(char *str);
 void	error(t_cub *cub, char *error);
+void	parse_texture(t_cub *cub, char *line);
 
 #endif

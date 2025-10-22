@@ -2,6 +2,7 @@
 
 ==>>  handel key as switch\  <<==
 ==>>  Make sure about .cub\  <<==
+==>>  Make sure about space after textures file name\  <<==
 ==>>  Fix leaks Fix leaks \  <<==
 
 

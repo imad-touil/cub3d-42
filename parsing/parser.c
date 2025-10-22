@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 14:55:31 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/21 20:45:24 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/22 13:11:46 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,16 @@ int	parse_map(t_cub *cub, char *file_name)
 		line = skip_white_space(line);
 		if (*line == 'R')
 			parse_resolution(cub, line);
-		// else if (!ft_strncmp(line, "SO", 2))
+		else if (!ft_strncmp(line, "NO", 2))
+			parse_texture(cub, line);
+		else if (!ft_strncmp(line, "SO", 2))
+			parse_texture(cub, line);
+		else if (!ft_strncmp(line, "WE", 2))
+			parse_texture(cub, line);
+		else if (!ft_strncmp(line, "EA", 2))
+			parse_texture(cub, line);
 		line = get_next_line(fd);
+		// free(line);
 	}
 	return (0);
 }
