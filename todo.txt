@@ -2,7 +2,9 @@
 
 ==>>  handel key as switch\  <<==
 ==>>  Make sure about .cub\  <<==
+==>>  Make sure about resolution max values\  <<==
 ==>>  Make sure about space after textures file name\  <<==
+==>>  Make sure about .xpm textures file end\  <<==
 ==>>  Fix leaks Fix leaks \  <<==
 
 

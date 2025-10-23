@@ -9,6 +9,8 @@ SRC = ./sources/main.c\
 	  ./parsing/parser.c\
 	  ./parsing/utils.c\
 	  ./parsing/texture.c\
+	  ./parsing/parse_ceiling.c\
+	  ./parsing/parse_floor.c\
 
 OBJ = $(SRC:.c=.o)
 LIBFT = ./libft/libft.a

@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 17:54:12 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/22 14:53:22 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/23 17:56:45 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ void	init_cub(t_cub *cub)
 	cub->has_ea = 0;
 	cub->screen_height = WIN_H;
 	cub->screen_width = WIN_W;
+	cub->ceiling_set = 0;
+	cub->floor_set = 0;
+	cub->ceiling = malloc(sizeof(t_color)); // check this shit
+	cub->floor = malloc(sizeof(t_color)); // check this shit
 }
 
 int	handel_key(int key_code, void *param)
@@ -45,10 +49,10 @@ int	main(int ac, char **av)
 	t_cub	*cub;
 
 	if (ac != 2)
-		return (printf("%sEnter One Arg!\n", RED), 1);
+		return (printf("%sError\nEnter One Arg!\n", RED), 1);
 	else if ((ft_strlen(av[1]) <= 4)
 		|| (ft_strncmp(".cub", av[1] + ft_strlen(av[1]) - 4, 4)))
-		return (printf("%sEnter .cub file extension\n", RED), 1);
+		return (printf("%sError\nEnter .cub file extension\n", RED), 1);
 	cub = malloc(sizeof(t_cub));
 	if (!cub)
 		return (perror("Cub3D"), 1);
