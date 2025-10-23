@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:41:15 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/23 21:35:27 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/23 22:53:38 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	norm_helper(t_cub *cub, char **texture, char *line, int *flag)
 	if (fd == -1)
 		error(cub, "Error : wrong texture path!");
 	close(fd);
-	*texture = ft_strdup(tmp);
+	*texture = tmp;
 	*flag = 1;
 	free(tmp);
 }
