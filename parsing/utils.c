@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 17:41:14 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/23 17:57:07 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/23 20:55:51 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ char	*skip_white_space(char *str)
 void	error(t_cub *cub, char *error)
 {
 	printf("%sError\n%s\n", RED, error);
-	// clean_up(cub); TODO
-	cub->screen_height = 1337; // just for compiling flags;
+	clean_up(cub);
 	exit(EXIT_FAILURE);
 }
 
@@ -46,4 +45,13 @@ char	*skip_separator(t_cub *cub, char *line)
 		error(cub, "Enter A Valid Separator");
 	line = skip_white_space(line);
 	return (line);
+}
+
+void	clean_up(t_cub *cub)
+{
+	if (!cub)
+		return ;
+	free(cub->ceiling);
+	free(cub->floor);
+	free(cub);
 }

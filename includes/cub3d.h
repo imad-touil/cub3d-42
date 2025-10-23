@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:53:35 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/23 17:03:56 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/23 20:37:35 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ void	check_range(t_cub *cub, int nbr);
 char	*skip_separator(t_cub *cub, char *line);
 void	parse_ceiling(t_cub *cub, char *line);
 void	parse_floor(t_cub *cub, char *line);
+void	clean_up(t_cub *cub);
 
 #endif
