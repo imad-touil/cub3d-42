@@ -33,18 +33,16 @@ Skip empty lines.
 Step 5: Parse the mapw
 --------------------------
 
-Once you reach the first line that looks like a map (1s and 0s), start storing it.
+Detect first map line using is_map_line().
 
-Use a dynamic array or linked list first, then convert to a 2D char ** array.
+Store all subsequent map lines in t_map.grid.
 
-Detect player start position (N/S/E/W) and store it in t_player.
+Compute width and height.
 
---------------------------
-Step 6: Validate the map
---------------------------
+Detect the player position (N, S, E, W) and save in t_player.
 
-Make sure the map is surrounded by walls.
+Pad shorter lines with spaces.
 
-Make sure there’s exactly one player start.
+Validate that map contains exactly one player.
 
-Check for invalid characters.
+After parsing, you can validate map walls (optional next step).

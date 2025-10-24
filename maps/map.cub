@@ -1,6 +1,3 @@
-R 1920  1080
-
-
 NO 		./images/1.xpm
 SO ./images/2.xpm
 			EA 				./images/3.xpm
@@ -10,7 +7,8 @@ C 		3,			45   ,		93
 F		3,			45   ,		93  
 
 
-Hello Funny World 0
-Hello Funny World 1
-Hello Funny World 2
-Hello Funny World 3
+
+111111
+100001
+10N001
+111111

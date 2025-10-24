@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 17:54:12 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/24 16:25:35 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/24 18:09:16 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	main(int ac, char **av)
 	if (!cub)
 		return (perror("Cub3D"), 1);
 	init_cub(cub);
-	if (parse_map(cub, av[1]))
+	if (parser(cub, av[1]))
 		return (0);
 	mlx = mlx_init();
 	win = mlx_new_window(mlx, cub->screen_width, cub->screen_height, "Cub3D");

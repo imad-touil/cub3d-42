@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:53:35 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/23 20:37:35 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/24 23:26:08 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ typedef struct s_map
 	char	*grid;
 }			t_map;
 
-int		parse_map(t_cub *cub, char *file_name);
+int		parser(t_cub *cub, char *file_name);
 char	*skip_white_space(char *str);
 void	error(t_cub *cub, char *error);
 void	parse_texture(t_cub *cub, char *line);
@@ -78,5 +78,7 @@ char	*skip_separator(t_cub *cub, char *line);
 void	parse_ceiling(t_cub *cub, char *line);
 void	parse_floor(t_cub *cub, char *line);
 void	clean_up(t_cub *cub);
+int		is_map_line(char *line);
+void	parse_map(t_cub *cub, char *line);
 
 #endif
