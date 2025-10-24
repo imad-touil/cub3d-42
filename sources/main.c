@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 17:54:12 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/23 20:56:24 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/24 16:25:35 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	handel_key(int key_code, void *param)
 	return (0);
 }
 
-void	ll()
+void	ll(void)
 {
 	system("leaks -q cub3d");
 }

@@ -6,6 +6,11 @@
 ==>>  Make sure about space after textures file name\  <<==
 ==>>  Make sure about .xpm textures file end\  <<==
 ==>>  Fix leaks Fix leaks \  <<==
+==>>  Fix leaks Fix leaks \  <<==
+==>>  Fix leaks Fix leaks \  <<==
+==>>  Check leaks Fix leaks \  <<==
+==>>  Check leaks Fix leaks \  <<==
+==>>  🛑Check leaks Fix leaks🛑 \  <<==
 
 
 

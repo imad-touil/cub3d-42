@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 17:41:14 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/23 22:53:43 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/24 16:25:20 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	check_range(t_cub *cub, int nbr)
 {
 	if (nbr < 0 || nbr > 255)
 		error(cub, "Enter Valid Range [0, 255]");
-	
 }
 
 char	*skip_white_space(char *str)
@@ -25,6 +24,7 @@ char	*skip_white_space(char *str)
 		str++;
 	return (str);
 }
+
 void	error(t_cub *cub, char *error)
 {
 	printf("%sError\n%s\n", RED, error);
