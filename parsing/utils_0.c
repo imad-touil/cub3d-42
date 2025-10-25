@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_0.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 17:41:14 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/24 16:25:20 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/25 21:54:03 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,24 @@ char	*skip_separator(t_cub *cub, char *line)
 
 void	clean_up(t_cub *cub)
 {
+	int	i;
+
 	if (!cub)
 		return ;
-	free(cub->ceiling);
-	free(cub->floor);
-	free(cub);
+	free(cub->texture_no);
+	free(cub->texture_so);
+	free(cub->texture_we);
+	free(cub->texture_ea);
+	if (cub->map)
+	{
+		if (cub->map->grid)
+		{
+			i = -1;
+			while (cub->map->grid[++i])
+				free(cub->map->grid[i]);
+			free(cub->map->grid);
+		}
+		free(cub->map);
+	}
+	free(cub->player);
 }

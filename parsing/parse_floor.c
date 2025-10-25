@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 16:58:58 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/23 22:43:55 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/25 12:23:00 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	parse_floor(t_cub *cub, char *line)
 {
 	if (cub->floor_set)
-		error(cub, "Duplicate Ceilling Symbol");
+		error(cub, "Duplicate Floor Symbol");
 	line++;
 	if (*line != ' ' && *line != '\t')
 		error(cub, "Invalid separator");

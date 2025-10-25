@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:53:35 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/24 23:26:08 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/25 22:25:31 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ typedef struct s_cub
 {
 	int				screen_width;
 	int				screen_height;
-	int				resolution_set;
 	char			*texture_no;
 	char			*texture_so;
 	char			*texture_we;
@@ -45,7 +44,7 @@ typedef struct s_cub
 	struct s_player	*player;
 	struct s_color	*floor;
 	struct s_color	*ceiling;
-	struct smap		*map;
+	struct s_map	*map;
 }					t_cub;
 
 typedef struct s_player
@@ -66,7 +65,7 @@ typedef struct s_map
 {
 	int		width;
 	int		height;
-	char	*grid;
+	char	**grid;
 }			t_map;
 
 int		parser(t_cub *cub, char *file_name);
@@ -80,5 +79,9 @@ void	parse_floor(t_cub *cub, char *line);
 void	clean_up(t_cub *cub);
 int		is_map_line(char *line);
 void	parse_map(t_cub *cub, char *line);
+void	free_split(char **grid);
+void	find_player(t_cub *cub);
+int		is_map_closed(t_cub *cub, char **grid);
+char	*join_line(char *map_data, char *line);
 
 #endif

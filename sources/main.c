@@ -6,11 +6,30 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 17:54:12 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/24 18:09:16 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/25 22:12:06 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+static void	alloc_cub_structs_helper(t_cub *cub)
+{
+	cub->ceiling = malloc(sizeof(t_color));
+	if (!cub->ceiling)
+		error(cub, "Memory allocation failed");
+	cub->floor = malloc(sizeof(t_color));
+	if (!cub->floor)
+		error(cub, "Memory allocation failed");
+	cub->player = malloc(sizeof(t_player));
+	if (!cub->player)
+		error(cub, "Memory allocation failed");
+	cub->map = malloc(sizeof(t_map));
+	if (!cub->map)
+		error(cub, "Memory allocation failed");
+	cub->map->grid = NULL;
+	cub->map->width = 0;
+	cub->map->height = 0;
+}
 
 void	init_cub(t_cub *cub)
 {
@@ -18,23 +37,19 @@ void	init_cub(t_cub *cub)
 	cub->texture_so = NULL;
 	cub->texture_we = NULL;
 	cub->texture_ea = NULL;
-	cub->resolution_set = 0;
 	cub->ceiling = NULL;
 	cub->floor = NULL;
+	cub->map = NULL;
+	cub->player = NULL;
 	cub->has_no = 0;
 	cub->has_so = 0;
 	cub->has_we = 0;
 	cub->has_ea = 0;
-	cub->screen_height = WIN_H;
-	cub->screen_width = WIN_W;
 	cub->ceiling_set = 0;
 	cub->floor_set = 0;
-	cub->ceiling = malloc(sizeof(t_color));
-	if (!cub->ceiling)
-		error(cub, "Error\nMemory allocation failed");
-	cub->floor = malloc(sizeof(t_color));
-	if (!cub->floor)
-		error(cub, "Error\nMemory allocation failed");
+	cub->screen_height = WIN_H;
+	cub->screen_width = WIN_W;
+	alloc_cub_structs_helper(cub);
 }
 
 int	handel_key(int key_code, void *param)

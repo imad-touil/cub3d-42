@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   texture.c                                          :+:      :+:    :+:   */
+/*   parse_texture.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:41:15 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/23 22:53:38 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/25 21:51:58 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,18 @@ static void	norm_helper(t_cub *cub, char **texture, char *line, int *flag)
 	int		fd;
 	int		len;
 	char	*tmp;
+	char	*newline;
 
 	if (*flag)
 		error(cub, "Duplicate Texture Symbol");
 	tmp = line;
 	tmp += 2;
 	if (*tmp != ' ' && *tmp != '\t')
-		error(cub, "Invalid texture path!");
+		error(cub, "Invalid texture element");
 	tmp = skip_white_space(tmp);
-	tmp = ft_strtrim(tmp, "\n");
+	newline = ft_strchr(tmp, '\n');
+	if (newline)
+		*newline = '\0';
 	len = ft_strlen(tmp);
 	if (len <= 4 || ft_strncmp(".xpm", tmp + len - 4, 4))
 		error(cub, "wrong texture file");
@@ -33,9 +36,8 @@ static void	norm_helper(t_cub *cub, char **texture, char *line, int *flag)
 	if (fd == -1)
 		error(cub, "Error : wrong texture path!");
 	close(fd);
-	*texture = tmp;
+	*texture = ft_strdup(tmp);
 	*flag = 1;
-	free(tmp);
 }
 
 void	parse_texture(t_cub *cub, char *line)

@@ -2,13 +2,10 @@ NO 		./images/1.xpm
 SO ./images/2.xpm
 			EA 				./images/3.xpm
 WE ./images/4.xpm
-
 C 		3,			45   ,		93  
-F		3,			45   ,		93  
-
-
-
+F 		3,			45   ,		93 
 111111
-100001
-10N001
+100101
+101001
+1100N1
 111111

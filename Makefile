@@ -7,7 +7,8 @@ SRC = ./sources/main.c\
       ./get_next_line/get_next_line.c\
       ./get_next_line/get_next_line_utils.c\
 	  ./parsing/parser.c\
-	  ./parsing/utils.c\
+	  ./parsing/utils_0.c\
+	  ./parsing/utils_1.c\
 	  ./parsing/parse_texture.c\
 	  ./parsing/parse_ceiling.c\
 	  ./parsing/parse_floor.c\
