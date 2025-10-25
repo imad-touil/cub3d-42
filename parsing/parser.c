@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 14:55:31 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/25 22:43:23 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/25 22:54:52 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,23 @@ int	is_map_line(char *line)
 	return (0);
 }
 
-int	parser(t_cub *cub, char *file_name)
+static void	append_map_lines(char **map_data, int fd, char *line)
 {
-	int		fd;
-	char	*line;
-	char	*tmp;
-	char	*map_data;
-
-	map_data = ft_strdup("");
-	fd = open(file_name, O_RDONLY);
-	if (fd == -1)
-		error(cub, "Can't Open file");
-	line = get_next_line(fd);
-	if (!line)
-		error(cub, "You Entered an empty file");
 	while (line)
 	{
-		tmp = line;
-		tmp = skip_white_space(tmp);
+		*map_data = join_line(*map_data, line);
+		free(line);
+		line = get_next_line(fd);
+	}
+}
+
+static void	norm_helper(t_cub *cub, char **map_data, int fd, char *line)
+{
+	char	*tmp;
+
+	while (line)
+	{
+		tmp = skip_white_space(line);
 		if (*tmp == 'C')
 			parse_ceiling(cub, tmp);
 		else if (*tmp == 'F')
@@ -51,16 +50,32 @@ int	parser(t_cub *cub, char *file_name)
 			if (!cub->ceiling_set || !cub->floor_set || !cub->has_we
 				|| !cub->has_no || !cub->has_so || !cub->has_ea)
 				error(cub, "Missing map elements");
-				map_data = join_line(map_data, line);
-				while ((line = get_next_line(fd)))
-					map_data = join_line(map_data, line);
-				break ;
+			append_map_lines(map_data, fd, line);
+			break ;
 		}
 		else if (*tmp != '\n')
 			error(cub, "Invalid Line");
 		free(line);
 		line = get_next_line(fd);
 	}
+}
+
+int	parser(t_cub *cub, char *file_name)
+{
+	int		fd;
+	char	*line;
+	char	*map_data;
+
+	map_data = ft_strdup("");
+	if (!map_data)
+		error(cub, "Memory allocation failed");
+	fd = open(file_name, O_RDONLY);
+	if (fd == -1)
+		error(cub, "Can't open file");
+	line = get_next_line(fd);
+	if (!line)
+		error(cub, "You entered an empty file");
+	norm_helper(cub, &map_data, fd, line);
 	if (!*map_data)
 		error(cub, "Map missing");
 	parse_map(cub, map_data);
