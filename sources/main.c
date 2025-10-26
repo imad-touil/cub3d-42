@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 17:54:12 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/25 22:12:06 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/26 14:20:20 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,18 @@ int	handel_key(int key_code, void *param)
 	return (0);
 }
 
-void	ll(void)
+// void	ll(void)
+// {
+// 	system("leaks -q cub3d");
+// }
+
+void	print_map(t_map *map)
 {
-	system("leaks -q cub3d");
+	int	i;
+
+	i = -1;
+	while (map->grid[++i])
+		printf("%s\n", map->grid[i]);
 }
 
 int	main(int ac, char **av)
@@ -74,7 +83,6 @@ int	main(int ac, char **av)
 	void	*win;
 	t_cub	*cub;
 
-	atexit(ll);
 	if (ac != 2)
 		return (printf("%sError\nEnter One Arg!\n", RED), 1);
 	else if ((ft_strlen(av[1]) <= 4)
@@ -86,6 +94,7 @@ int	main(int ac, char **av)
 	init_cub(cub);
 	if (parser(cub, av[1]))
 		return (0);
+	print_map(cub->map);
 	mlx = mlx_init();
 	win = mlx_new_window(mlx, cub->screen_width, cub->screen_height, "Cub3D");
 	mlx_key_hook(win, handel_key, NULL);

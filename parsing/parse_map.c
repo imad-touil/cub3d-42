@@ -6,7 +6,7 @@
 /*   By: imatouil <imatouil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 18:10:48 by imatouil          #+#    #+#             */
-/*   Updated: 2025/10/25 21:51:31 by imatouil         ###   ########.fr       */
+/*   Updated: 2025/10/26 13:15:40 by imatouil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,6 @@ void	parse_map(t_cub *cub, char *map_data)
 
 	fill_grid(cub, map_data);
 	i = -1;
-	while (cub->map->grid[++i])
-		printf("%s\n", cub->map->grid[i]);
 	player_nbr = count_player(cub, cub->map->grid);
 	if (player_nbr != 1)
 		error(cub, "Map must contain exactly one player!");
